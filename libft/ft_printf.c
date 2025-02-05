@@ -6,7 +6,7 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:43:40 by lkramer           #+#    #+#             */
-/*   Updated: 2024/12/04 18:34:20 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/04 10:27:04 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	int printf(const char *, ...)
 	Takes a undefined number of variables and prints them as standard output
 */
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_print_format(char identifier, va_list *ap)
 {

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:14:56 by lkramer           #+#    #+#             */
-/*   Updated: 2024/12/04 16:31:16 by lkramer          ###   ########.fr       */
+/*   Created: 2024/12/03 12:13:48 by lkramer           #+#    #+#             */
+/*   Updated: 2025/02/04 10:26:41 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_str(char *str)
+int	ft_print_char(int c)
 {
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	if (!str)
-		str = "(null)";
-	while (str[i])
-	{
-		ft_print_char((int)str[i]);
-		i++;
-		count++;
-	}
-	return (count);
+	if (write(1, &c, 1) < 0) 
+		return (-1);
+	return (1); 
 }

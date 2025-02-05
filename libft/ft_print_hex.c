@@ -6,11 +6,11 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:31:35 by lkramer           #+#    #+#             */
-/*   Updated: 2024/12/04 18:34:41 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/04 10:26:49 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static size_t	hex_digit(uintptr_t n)
 {

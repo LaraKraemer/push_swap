@@ -6,13 +6,13 @@
 #    By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 18:10:29 by lkramer           #+#    #+#              #
-#    Updated: 2024/11/28 15:32:33 by lkramer          ###   ########.fr        #
+#    Updated: 2025/02/04 10:50:21 by lkramer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          = cc 
 
-CFLAGS      = -Wall -Wextra -Werror -I. -Itests/unity/src
+CFLAGS      = -Wall -Wextra -Werror
 
 NAME        = libft.a
 
@@ -51,6 +51,13 @@ SRC         = \
             ft_putstr_fd.c \
             ft_putendl_fd.c \
             ft_putnbr_fd.c \
+			ft_print_char.c \
+			ft_print_digit.c \
+			ft_print_hex.c \
+			ft_print_ptr.c \
+			ft_print_str.c \
+			ft_print_unsigned_digit.c \
+			ft_printf.c \
 
 
 # Object files - .c files
@@ -82,11 +89,11 @@ $(NAME): $(OBJ)
 
 # Clean: Remove .out files 
 clean:
-	rm -f $(OBJ) $(TEST_OBJ) $(BONUS_OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 # Full clean: Remove .out files & libary 
 fclean:	clean
-	rm -f $(NAME) $(TEST_EXEC) $(BONUS_OBJ)
+	rm -f $(NAME) $(BONUS_OBJ)
 
 # Rebuild all
 re:	fclean all
@@ -94,22 +101,6 @@ re:	fclean all
 bonus: $(NAME) $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ) 
 
-# TEST STUFF DELETE before pushing
-UNITY_SRC = tests/unity/src/unity.c
-TEST_SRC = tests/test_libft.c
-TEST_EXEC = test_libft
-
-# Object files for tests
-TEST_OBJ = $(TEST_SRC:.c=.o)
-
-# Compile the test executable
-$(TEST_EXEC): $(SRC) $(BONUS) $(UNITY_SRC) $(TEST_SRC)
-	$(CC) $(CFLAGS) $^ -o $(TEST_EXEC)
-
-# Run the tests
-test: $(TEST_EXEC)
-	./$(TEST_EXEC)
-
 
 # Phony targets
-.PHONY: all clean fclean re bonus test
+.PHONY: all clean fclean re bonus 

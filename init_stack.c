@@ -6,7 +6,7 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:48:47 by lkramer           #+#    #+#             */
-/*   Updated: 2025/01/30 11:21:29 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/05 21:52:48 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Takes a string and returns an integer 
 (considers long integer for larger numbers)
  */
-static long	ft_atol(const char *s)
+long	ft_atol(const char *s)
 {
 	int	sign;
 	long result;
@@ -48,15 +48,10 @@ t_stack_node	*create_node(int nbr)
 {
     t_stack_node	*new_node;
 	new_node = malloc(sizeof(t_stack_node));
-    if (!new_node)
-        return (NULL);
-	
+	if (!new_node)
+		return (NULL);
+
 	new_node->nbr = nbr;
-    new_node->index = -1;
-    new_node->push_cost = 0;
-    new_node->above_median = false;
-    new_node->cheapest = false;
-    new_node->target_node = NULL;
     new_node->next = NULL;
     return (new_node);
 }
@@ -85,15 +80,18 @@ void	append_node(t_stack_node **a, int nbr)
 	current->next = new_node;  
 }
 /* 
-Takes *a linked list and command line argument.
+Takes *a and command line argument.
 Returns initiated stack with double linked list
  */
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, int is_split)
 {
 	long	num;
 	int 	i;
 
-	i = 1;
+	if (is_split)
+		i = 0;
+	else
+		i = 1;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
@@ -107,4 +105,3 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		i++;
 	}
 }
-

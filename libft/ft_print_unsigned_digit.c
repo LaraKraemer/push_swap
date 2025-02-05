@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_digit.c                                   :+:      :+:    :+:   */
+/*   ft_print_unsigned_digit.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:16:25 by lkramer           #+#    #+#             */
-/*   Updated: 2024/12/04 17:30:59 by lkramer          ###   ########.fr       */
+/*   Created: 2024/12/03 13:14:04 by lkramer           #+#    #+#             */
+/*   Updated: 2025/02/04 10:26:59 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_digit(long n)
+int	ft_print_unsigned_digit(unsigned long n)
 {
 	int	count;
 
 	count = 0;
-	if (n == LONG_MIN)
+	if (n == 0)
 	{
-		count += ft_print_char('-');
-		n = -(n / 10);
-		count += ft_print_digit(n);
-		count += ft_print_char('8');
+		count += ft_print_char('0'); 
 		return (count);
 	}
-	if (n < 0)
-	{
-		count += ft_print_char('-');
-		n = -n;
-	}
 	if (n >= 10)
-		count += ft_print_digit(n / 10);
+		count += ft_print_unsigned_digit(n / 10);
 	count += ft_print_char(n % 10 + '0');
 	return (count);
 }
