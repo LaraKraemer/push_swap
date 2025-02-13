@@ -6,7 +6,7 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:14:04 by lkramer           #+#    #+#             */
-/*   Updated: 2025/02/04 10:26:59 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:53:02 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_print_unsigned_digit(unsigned long n)
 	count = 0;
 	if (n == 0)
 	{
-		count += ft_print_char('0'); 
+		count += ft_print_char('0');
 		return (count);
 	}
 	if (n >= 10)

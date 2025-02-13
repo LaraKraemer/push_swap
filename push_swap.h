@@ -6,30 +6,30 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:02:43 by lkramer           #+#    #+#             */
-/*   Updated: 2025/02/05 21:48:53 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/11 11:43:06 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// printing command 
 # include <stdbool.h> 
-// min and max
 # include <limits.h>
 # include "libft/libft.h"
-typedef struct	s_stack_node
+
+typedef struct s_stack_node
 {
-	int 				nbr;
-	int				index;
-	struct s_stack_node	*next;
-}  	t_stack_node; 
+	int						nbr;
+	int						index;
+	struct s_stack_node		*next;
+}	t_stack_node;
 
 /* Error handling  */
-int				error_syntax(char *str_num); 
+int				error_syntax(char *str_num);
 int				error_dup(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **a);
+void			free_errors(t_stack_node **a, char **argv, int is_split);
+void			free_array(char **argv);
 
 /* Stack initiation   */
 long			ft_atol(const char *s);
@@ -41,6 +41,8 @@ void			init_stack_a(t_stack_node **a, char **argv, int is_split);
 bool			stack_sorted(t_stack_node *a);
 int				stack_size(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
+int				is_only_spaces(char *argv);
+int				handle_input(int argc, char ***argv, int *is_split);
 
 /* Commands */
 void			swap_a(t_stack_node **a);
@@ -50,6 +52,7 @@ void			push_a(t_stack_node **a, t_stack_node **b);
 void			push_b(t_stack_node **a, t_stack_node **b);
 
 /* algorithm  */
+void			check_stack_size(t_stack_node **a, t_stack_node **b);
 void			sort_three(t_stack_node **a);
 void			sort_four_five(t_stack_node **a, t_stack_node **b);
 void			radix_sort(t_stack_node **a, t_stack_node **b);
@@ -58,11 +61,5 @@ void			radix_sort(t_stack_node **a, t_stack_node **b);
 void			assign_indices(t_stack_node *stack);
 int				get_max_bits(t_stack_node *stack);
 t_stack_node	*find_min_unindexed(t_stack_node *stack);
-
-
-/* DELETE BEFOR EVAL */
-void			print_stack(t_stack_node *stack);
-void check_stack_size(t_stack_node **a, t_stack_node **b);
-
 
 #endif

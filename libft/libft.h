@@ -6,12 +6,13 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 18:01:59 by lkramer           #+#    #+#             */
-/*   Updated: 2025/02/04 10:25:39 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:58:15 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stddef.h>
 # include <unistd.h>
 # include <stdint.h>
@@ -20,15 +21,13 @@
 # include <stdio.h>
 # include <limits.h>
 
-
-int	ft_printf(const char *format, ...);
-int	ft_print_char(int c);
-int	ft_print_str(char *str);
-int	ft_print_digit(long n);
-int	ft_print_unsigned_digit(unsigned long n);
-int	ft_print_hex(uintptr_t n, int is_uppercase);
-int	ft_print_ptr(void *ptr);
-
+int		ft_printf(const char *format, ...);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+int		ft_print_digit(long n);
+int		ft_print_unsigned_digit(unsigned long n);
+int		ft_print_hex(uintptr_t n, int is_uppercase);
+int		ft_print_ptr(void *ptr);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);

@@ -6,18 +6,15 @@
 #    By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:05:03 by lkramer           #+#    #+#              #
-#    Updated: 2025/02/05 21:29:57 by lkramer          ###   ########.fr        #
+#    Updated: 2025/02/07 13:13:54 by lkramer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          = cc 
-
 CFLAGS      = -Wall -Wextra -Werror 
-
 NAME        = push_swap
 
 LIBFT_DIR   = ./libft
-
 LIBFT       = $(LIBFT_DIR)/libft.a
 
 
@@ -34,14 +31,14 @@ SRC         = \
 OBJ         = $(SRC:.c=.o)
 
 # Default target
-all: $(NAME)
-
-# Create library  from object files
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+all: $(LIBFT) $(NAME)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+	
+# Create library  from object files
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 # Compile src file in out files
 %.o: %.c

@@ -6,7 +6,7 @@
 /*   By: lkramer <lkramer@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:31:35 by lkramer           #+#    #+#             */
-/*   Updated: 2025/02/04 10:26:49 by lkramer          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:53:36 by lkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	write_hex(uintptr_t n, int is_uppercase)
 		write_hex(n / 16, is_uppercase);
 	if (is_uppercase)
 		write(1, &upper_digit[n % 16], 1);
-	else 
+	else
 		write(1, &lower_digit[n % 16], 1);
 }
 
