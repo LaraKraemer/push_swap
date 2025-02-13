@@ -1,10 +1,10 @@
-# Pushswap Project
+# Push-Swap
 
 ![Pushswap Header](media/push_swap.png)
 
 
 ## Description
-Pushswap is an algorithmic project at 42 School. It's main objectives is to sort a list of integers using two stacks and a limited set of operations. 
+Push-Swap is an algorithmic project on the second rank at 42 School.
 
 ## Objectives
 - Implement an efficient sorting algorithm using two stacks (`a` and `b`).
