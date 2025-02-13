@@ -18,8 +18,8 @@ My implementation has a time complexity of:
 O(n * k)
 ```
 Where:
-- n = number of elements (e.g., 100 or 500 numbers in your case).
-- k = number of digits in the largest number (depends on the number range and base used).
+- n = number of elements (e.g., 100 or 500 numbers in my case).
+- k = number of digits in the largest number
 
 In General:
 Radix Sort works by sorting numbers digit by digit, typically using a stable sorting algorithm like Counting Sort (O(n)). Since it processes each digit separately, the total complexity is O(n * k). However, my implementation sorts indices instead of raw numbers, k is smaller (≈ log(n)), making my approach nearly O(n log n) in practice.
